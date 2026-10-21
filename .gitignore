@@ -218,3 +218,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Coffee Coop - generated data
+content/coffee-coop/data/sql/*.sql
+content/coffee-coop/data/sql/coffee_coop_sql/
