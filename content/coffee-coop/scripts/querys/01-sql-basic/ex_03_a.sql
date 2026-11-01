@@ -1,5 +1,5 @@
 -- Exercise 03 - a
--- Certifications: name, issuer and premium per kg ordered from highest to lowest premium
+-- name, issuer and premium per kg ordered from highest to lowest premium
 
 SELECT
     T1.certification_name AS certification,
