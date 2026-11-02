@@ -5,6 +5,7 @@ SELECT
     T1.description as description,
     T1.species as species
 FROM farm.coffee_varieties AS T1;
+WHERE T1.is_rust_resistant = TRUE
 
 /*
     variety    |                             description                             | species      
