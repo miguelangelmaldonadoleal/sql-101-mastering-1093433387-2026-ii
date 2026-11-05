@@ -1,0 +1,16 @@
+-- Exercise 01 - b
+-- Farms of Pamplona (54518) with municipality and owner names
+
+SELECT
+    T1.farm_name AS farm,
+    T1.rural_district AS rural_district,
+    T2.municipality_name AS municipality,
+    T3.first_name AS first_name,
+    T3.last_name AS last_name
+FROM farm.farms AS T1
+INNER JOIN geo.municipalities AS T2
+    ON T1.municipality_code = T2.municipality_code
+INNER JOIN farm.farmers AS T3
+    ON T1.farmer_id = T3.farmer_id
+WHERE T1.municipality_code = '54518'
+ORDER BY T3.last_name ASC;
