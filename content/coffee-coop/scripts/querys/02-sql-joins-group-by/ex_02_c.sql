@@ -1,16 +1,28 @@
--- Exercise 03 - c
--- Coffee varieties not planted in any plot
+-- Exercise 02 - c
+-- Deliveries of 2026-09-30 with their quality analysis, including those without analysis
 
 SELECT
-    T2.variety_name AS variety,
-    T2.species AS species
-FROM farm.plot_varieties AS T1
-RIGHT JOIN farm.coffee_varieties AS T2
-    ON T1.variety_id = T2.variety_id
-WHERE T1.plot_variety_id IS NULL;
+    T1.delivery_id AS delivery,
+    T2.analysis_id AS analysis,
+    T2.cup_score AS cup_score
+FROM buy.deliveries AS T1
+LEFT JOIN buy.quality_analyses AS T2
+    ON T1.delivery_id = T2.delivery_id
+WHERE T1.delivery_id LIKE 'DLV-20260930-%'
+ORDER BY T1.delivery_id ASC;
 
 /*
- variety | species                                                                                                                           
----------+---------
-(0 rows)
+delivery            | analysis           | cup_score
+--------------------+--------------------+----------
+DLV-20260930-000001 |                    |          
+DLV-20260930-000002 |                    |          
+DLV-20260930-000003 | QA-20260930-000001 |          
+DLV-20260930-000004 | QA-20260930-000002 |          
+DLV-20260930-000005 | QA-20260930-000026 | 78.56    
+DLV-20260930-000006 | QA-20260930-000018 | 79.98    
+DLV-20260930-000007 |                    |          
+DLV-20260930-000008 | QA-20260930-000007 |          
+DLV-20260930-000009 |                    |          
+DLV-20260930-000010 | QA-20260930-000006 |          
+(10 rows)
 */
